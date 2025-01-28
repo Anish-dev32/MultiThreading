@@ -109,7 +109,15 @@ public class Threading {
     * Instead of using executor framework submit() and holding main thread by using get(), we can use CountDownLatch
     * or CyclicBarrier to handle it more efficiently.
     *
+    * CountDownLatch reduces count until 0 and wait till last thread to complete its execution
+    * using await();
     *
+    * but, here we can not reset count, so in this case we can use CyclicBarrier., it does not block
+    * main thread.
+    *
+    * Completable future - came in java 8, have all functionality for thread management.
+    * CompletableFuture tasks often run on daemon threads due to use of ForkJoinPool.commonPool
+    * we can control thread type by providing custom executor service .
     */
 
 
